@@ -1,0 +1,23 @@
+# Install packer
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install packer
+
+# Checkpath values
+echo $PATH
+
+# PAcker executable should be in any of the bin path
+which packer
+
+# Create directory
+cd packer_demo/
+touch packer-demo-image.pkr.hcl
+
+# Add file content in packer-demo-image.pkr.hcl
+
+# Execute commands below to bring-up and build docker image
+packer init  .
+packer fmt .
+packer validate .
+packer build packer-demo-image.pkr.hcl 
+docker image ls
