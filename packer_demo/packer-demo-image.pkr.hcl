@@ -9,7 +9,7 @@ packer {
 
 variable "docker_username" {
   type    = string
-  default = "gsdockit"
+  default = env("DOCKER_USERNAME")
 }
 
 variable "docker_pwd" {
@@ -17,19 +17,27 @@ variable "docker_pwd" {
   default = env("DOCKER_PASSWORD")
 }
 
-variable "docker_url" {
+# variable "docker_url" {
+#   type    = string
+#   default = "https://index.docker.io/v1/"
+# }
+
+variable "image_build_name" {
   type    = string
-  default = "https://registry.hub.docker.com/v2/"
+  default = "packer-demo-2"
 }
 
 source "docker" "ubuntu" {
   #  image  = "ubuntu:xenial"
   image  = "alpine"
   commit = true
+  changes = [
+    "ENTRYPOINT /bin/sh"
+  ]
 }
 
 build {
-  name = "packer-demo"
+  name = var.image_build_name
   sources = [
     "source.docker.ubuntu"
   ]
@@ -46,15 +54,15 @@ build {
 
   post-processors {
     post-processor "docker-tag" {
-      repository = "gsdockit/packer-demo"
-      tags       = ["0.1", "latest"]
+      repository = "${var.docker_username}/${var.image_build_name}"
+      tags       = ["latest"]
     }
 
     post-processor "docker-push" {
       login          = true
       login_password = var.docker_pwd
       login_username = var.docker_username
-      login_server   = var.docker_url
+      # login_server   = var.docker_url
     }
   }
 
