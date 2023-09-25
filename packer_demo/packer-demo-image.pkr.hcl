@@ -1,12 +1,3 @@
-packer {
-  required_plugins {
-    docker = {
-      version = ">= 0.0.7"
-      source  = "github.com/hashicorp/docker"
-    }
-  }
-}
-
 variable "docker_username" {
   type    = string
   default = env("DOCKER_USERNAME")
@@ -25,6 +16,15 @@ variable "docker_pwd" {
 variable "image_build_name" {
   type    = string
   default = "packer-demo-2"
+}
+
+packer {
+  required_plugins {
+    docker = {
+      version = ">= 0.0.7"
+      source  = "github.com/hashicorp/docker"
+    }
+  }
 }
 
 source "docker" "ubuntu" {
