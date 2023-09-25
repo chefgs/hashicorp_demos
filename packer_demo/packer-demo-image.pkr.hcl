@@ -65,5 +65,4 @@ build {
       # login_server   = var.docker_url
     }
   }
-
 }
