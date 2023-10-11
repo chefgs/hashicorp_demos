@@ -93,7 +93,7 @@ sudo apt update && sudo apt install packer
 - `source` block - Here we can declare the type of based image to be created as the outcome of the `packer build`
 - `build` block - In this block we should define `sources` of base image in which the images will get build
   - `provisioner` - In this section we can define a set of scripts that will be running during the image creation. If we want to install a set of software and configuration during the boot up, we can utilise this section
-  - `post_processors` - This is section, where can perform the image tagging and pushing to registry etc.
+  - `post_processors` - This section can be used to perform the image tagging and pushing to registry etc.
 - `variable` block - If we want to templatise the packer build process, we can make use of vairable block, and add the common values that can be used across the HCL file. Like Terraform, packer also has `var-file` concept so we can override the variables, while invoking the `packer` CLI command. 
 
 
