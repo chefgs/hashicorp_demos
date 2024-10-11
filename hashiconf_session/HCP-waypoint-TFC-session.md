@@ -67,7 +67,9 @@ In this session, we'll learn how HCP Waypoint and HCP Terraform work hand-in-han
 
 This is a link to my [GitHub Repository](https://github.com/chefgs/terraform-aws-s3).
 
-![Project Preview](./s3-module-preview.png)
+<div style="text-align: center;">
+  <img src="./s3-module-preview.png" alt="HCP Tools" style="width: 50%;"/>
+</div>
 
 ### Step 2: Create a No-Code Terraform Module
 
