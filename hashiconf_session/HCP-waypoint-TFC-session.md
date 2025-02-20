@@ -91,6 +91,12 @@ This is a link to my [GitHub Repository](https://github.com/chefgs/terraform-aws
 - Connect the workspace to your version control system (VCS) by selecting **GitHub** and choosing the Terraform repository you created earlier.
 - Now, configure the workspace to track changes in the repository and automatically trigger runs when updates are made to the code.
 
+#### Step 3: Pre-requisite
+
+**Fork the no-code module**
+
+Fork the no-code repository into your own organization or user space. Then, create a new release with a tag named v1.0.0. Finally, open the repository in GitHub or clone it locally and open it in your code editor.
+
 ### Step 4: Configure HCP Waypoint Template
 
 - HCP Tools Structure, it contains HCP Org > Projects > HCP Waypoint
